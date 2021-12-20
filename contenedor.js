@@ -32,14 +32,14 @@ class Contenedor {
 
         try {
             await fs.promises.writeFile(`./${this.file}`, JSON.stringify(this.productos), 'utf-8')
-            console.log('Productos agregados')
+            return agregarProducto
         } catch (error) {
             console.log(error)
         }
         
     }
 
-    getById(id){
+    async getById(id){
         let producto = this.productos.find(p => p.id == id)
         return producto
     }
